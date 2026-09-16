@@ -1,63 +1,93 @@
-# ⚡ Calculadora de Consumo Elétrico
+# 💧 Análise de Consumo de Água por Imóvel
 
-Uma calculadora simples desenvolvida em **Python** para estimar o consumo mensal de energia elétrica de um aparelho.
+Script em Python para coletar dados de consumo de água de um imóvel e classificar o consumo de acordo com o tipo de imóvel (comercial, apartamento ou casa), alertando sobre consumo excessivo.
 
-## 🎯 Objetivo
+## 📋 Descrição
 
-O projeto tem como objetivo calcular quanto um aparelho pode consumir de energia por mês, utilizando sua potência e o tempo médio de utilização diária.
+Este programa simples via terminal solicita ao usuário:
+- Nome
+- Tipo de imóvel (`comercial`, `apartamento` ou `casa`)
+- Consumo de água em m³
 
-## 🧮 Como funciona
+E retorna uma classificação com base em regras de negócio simples, indicando se o consumo está dentro do esperado ou se está excessivo.
 
-O programa utiliza a seguinte fórmula:
+## ⚙️ Como funciona
 
-**Consumo mensal = (Potência × Horas por dia × 30) ÷ 1000**
+O script avalia o consumo seguindo esta lógica:
 
-O resultado é apresentado em **kWh/mês**.
-
-Além disso, o programa calcula uma estimativa do custo mensal utilizando uma tarifa de **R$ 0,75 por kWh**.
-
-## 💻 Tecnologias utilizadas
-
-* 🐍 Python
-* 💻 Git
-* 🐙 GitHub
+| Tipo de imóvel | Condição de consumo | Resultado |
+|---|---|---|
+| Comercial | — | Tarifa comercial aplicada, consulte o plano corporativo |
+| Apartamento | consumo < 10 m³ | Consumo econômico — excelente controle de água |
+| Apartamento ou Casa | consumo < 25 m³ | Consumo moderado — dentro do padrão residencial |
+| Qualquer outro caso | consumo ≥ 25 m³ | Consumo excessivo — adote medidas de economia e verifique vazamentos |
 
 ## 🚀 Como executar
 
-1. Instale o Python no computador.
-2. Clone este repositório.
-3. Entre na pasta do projeto.
-4. Execute o arquivo `app.py`.
+### Pré-requisitos
 
-```bash
-python app.py
+- [Python 3.6+](https://www.python.org/downloads/) instalado
+
+### Passos
+
+1. Clone este repositório ou baixe o arquivo `.py`:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+   ```
+
+2. Execute o script:
+   ```bash
+   python consumo_agua.py
+   ```
+
+3. Responda às perguntas no terminal:
+   ```
+   Olá, estamos fazendo uma pesquisa de consumo de água por imóvel, primeiro, nos informe seu nome: Maria
+   Digite o tipo do imóvel entre as opções: comercial, apartamento e casa: apartamento
+   Digite o consumo de água em m3: 8
+   ```
+
+4. Veja o resultado:
+   ```
+   Consumo econômico–excelente controle de água!
+   ```
+
+## 🧪 Exemplos de uso
+
+**Exemplo 1 — Apartamento com consumo baixo**
+```
+Tipo de imóvel: apartamento
+Consumo: 8 m³
+Resultado: Consumo econômico–excelente controle de água!
 ```
 
-## 📌 Exemplo
-
-```text
-=== Calculadora de Consumo Elétrico ===
-
-Digite o nome do aparelho: Geladeira
-Digite a potência do aparelho em watts (W): 500
-Digite o tempo médio de uso diário (em horas): 3
-
-=== Resultado ===
-Aparelho: Geladeira
-Consumo estimado: 45.00 kWh/mês
-Custo estimado: R$ 33.75/mês
+**Exemplo 2 — Casa com consumo moderado**
+```
+Tipo de imóvel: casa
+Consumo: 20 m³
+Resultado: Consumo moderado – dentro do padrão residencial.
 ```
 
-## 📚 Aprendizados
+**Exemplo 3 — Consumo excessivo**
+```
+Tipo de imóvel: casa
+Consumo: 40 m³
+Resultado: Consumo excessivo – adote medidas de economia e verifique vazamentos
+```
 
-Com este projeto, foram praticados conceitos básicos de programação em Python, como:
+## 🛠️ Possíveis melhorias futuras
 
-* Entrada de dados com `input()`
-* Conversão de valores com `float()`
-* Operações matemáticas
-* Variáveis
-* Formatação de resultados com `f-string`
+- [ ] Validar se o tipo de imóvel digitado é uma das opções válidas
+- [ ] Normalizar entrada do usuário (remover espaços, ignorar maiúsculas/minúsculas)
+- [ ] Adicionar cálculo de tarifa em R$ com base no consumo
+- [ ] Registrar histórico de consumo em arquivo (CSV/JSON) para comparação mensal
+- [ ] Criar interface gráfica ou web para facilitar o uso
 
-## 👨‍💻 Autor
+## 📄 Licença
 
-Projeto desenvolvido como atividade de iniciação em tecnologia.
+Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e distribuir.
+
+## ✍️ Autor
+
+Desenvolvido como parte de um estudo/pesquisa sobre consumo de água por imóvel.
